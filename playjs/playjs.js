@@ -93,32 +93,41 @@ function newGame(){
 function updatePage(){
 	//update hangman image
 	document.getElementById("hangmanpic").src = "hangman"+guessCount+".gif";
+
 	//update clue string
 	var clueString = "";																	
 	for(var i=0; i<word.length;i++){
-		clueString += " _ ";
+		var letter = word.charAt(i);
+		if(guesses.indexOf(letter)>=0)
+			clueString += letter + ""
+		else
+			clueString += " _ ";
 	}
 	document.getElementById("clue").innerHTML = clueString; 
+
 	//update guess string
-	document.getElementById("guessstr").innerHTML = "Guesses : " + guesses;
+	if(guessCount==0)
+		document.getElementById("guessstr").innerHTML = "You Lose";
+	else if(clueString.indexOf("_") < 0)
+		document.getElementById("guessstr").innerHTML = "You Win";
+	else
+		document.getElementById("guessstr").innerHTML = "Guesses : " + guesses;
 
 }
 
 function guessLetter(){
 	//guesses에 letter 문자 추가
-	var letter = "";
-	letter = document.getElementById("hguess").value;
+	var letter = document.getElementById("hguess").value;
+	var clue = document.getElementById("clue");
 
-	if(guesses.indexOf(letter)<0) {//guesses에 letter가 없으면
-		guesses += letter;
-		//guessCount 갱신
-		var exist = word.indexOf(letter);
-		if(exist<0)
-			guessCount += -1;
+	if(guessCount==0 || clue.innerHTML.indexOf("_")<0 || guesses.indexOf(letter)>=0){
+		return;		//목숨이 0개 (Lose) || "_"가 없거나 (Win) || 입력한 문자가 이미 guesses에 포함되면
 	}
-	else //letter가 이미 guesses에 포함된 문자
-		return;
-	
+	guesses += letter;
+	if(word.indexOf(letter)<0){
+		guessCount--;
+	}
+
 	//console 확인
 	console.log(word);
 	console.log(letter);
@@ -128,9 +137,36 @@ function guessLetter(){
 	updatePage();
 }
 
+function changeImage(){
+	var bimg = document.getElementById("image");
+	var sarray = bimg.src.split('/');
+	var str = sarray[sarray.length-1];
 
+	if(str == "dog1.jpeg")
+		bimg.src = "dog2.jpeg";
+	else
+		bimg.src = "dog1.jpeg";
 
+	console.log(document.getElementById("image").src); //파일 전체 경로가 나옴
+}
 
+var colorNames = ["maroon", "red", "orange", "yellow", "olive", "purple", "fuchsia", "white",
+					"lime", "green", "navy", "blue", "aqua", "teal", "black", "silver", "gray"];
+
+function createColorTable(){
+	for(var i=0; i<colorNames.length;i++){
+		var colorTable = document.getElementById("colorTable");
+		var colorTableChild = document.createElement("div");
+		colorTable.appendChild(colorTableChild);
+		colorTableChild.setAttribute("class", "ctbox");
+		colorTableChild.style.display = "inline-block";
+		colorTableChild.style.width = "60px";
+		colorTableChild.style.padding = "10px";
+		colorTableChild.innerHTML = colorNames[i];
+		colorTableChild.style.color = colorNames[i];
+	}
+	
+}
 
 
 
