@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+
+	<script>
+		function show(){
+			var form = document.myform;
+			var id = form["id"].value;
+			var name = form["name"].value;
+			var gender = form["gender"].value;
+			var cell = form["number1"].value + form["number2"].value + form["number3"].value;
+			var address = form["address"].value;
+			var hobby = "";
+			for(var i=1; i<=4; i++){
+				if(form["hobby"+i].checked)
+					hobby += form["hobby"+i].value + " ";
+			}
+			var str = id + "\n" + name + "\n" + gender + "\n";
+			str += cell + "\n" + address + "\n" + hobby;
+			alert(str);
+		}
+	</script>
+	
+	<title></title>
+</head>
+<body>
+	<h1>회원가입</h1>
+
+	<form name="myform" method="post">
+		<table>
+			<tr>
+				<td>아이디
+				</td>
+				<td>
+					<input type="text" name="id" size="15" maxlength="12">
+				</td>
+			</tr>
+
+			<tr>
+				<td>이름
+				</td>
+				<td>
+					<input type="text" name="name" size="15" maxlength="12">
+				</td>
+			</tr>
+
+			<tr>
+				<td>비밀번호
+				</td>
+				<td>
+					<input type="password" name="password" size="15" maxlength="10">
+				</td>
+			</tr>
+
+			<tr>
+				<td>성별
+				</td>
+				<td>
+					<input type="radio" name="gender" value="male" checked>남성
+					<input type="radio" name="gender" value="female">여성
+				</td>
+			</tr>
+
+			<tr>
+				<td>휴대전화
+				</td>
+				<td>
+					<select name="number1">
+						<option value="010" selected>010</option>
+						<option value="011">011</option>
+						<option value="016">016</option>
+						<option value="017">017</option>
+						<option value="070">070</option>
+					</select>
+					<input type="text" name="number2" size="4">
+					<input type="text" name="number3" size="4">
+				</td>
+			</tr>
+
+			<tr>
+				<td>주소
+				</td>
+				<td>
+					<input type="text" name="address" size="50" maxlength="30">
+				</td>
+			</tr>
+
+			<tr>
+				<td>취미
+				</td>
+				<td>
+					<input type="checkbox" name="hobby1" value="workout">헬스
+					<input type="checkbox" name="hobby2" value="game">게임
+					<input type="checkbox" name="hobby3" value="soccer">축구
+					<input type="checkbox" name="hobby4" value="reading">독서
+				</td>
+			</tr>
+
+			<tr>
+				<td>자기소개
+				</td>
+				<td>
+					<textarea name="me" rows="5" cols="50"></textarea>
+				</td>
+			</tr>
+
+		</table>
+
+		<input type="button" value="회원가입" onclick="show();">
+		<input type="reset" value="다시작성">
+
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
