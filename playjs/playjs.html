@@ -6,7 +6,7 @@
 	<link type="text/css" rel="stylesheet" href="playjs.css">
 	<script src="playjs.js"></script>
 </head>
-<body>
+<body onload="changeColor();">
 	<header>
 		<div id="title">
 			Play with JS!
@@ -88,6 +88,23 @@
 			<input type="button" id="ctCreate" value="출력하기" onclick="createColorTable();"/>
 			<input type="button" id="ctRemove" value="없애기" onclick="removeColorTable();"/>
 			<div id="colorTable"></div>
+		</div>
+
+		<div class="lab">
+			<div id="target">
+				This is a Text.
+			</div>
+			<button onclick="stopTextColor();">중지</button>
+		</div>
+
+		<div class="lab">
+			<h3>상자 이동하기</h3>
+			<p>
+				<button onclick="myMove()">Click Me</button>
+			</p>
+			<div id="container">
+				<div id="animate"></div>
+			</div>
 		</div>
 
 	</div>

@@ -163,12 +163,66 @@ function createColorTable(){
 		colorTableChild.style.width = "60px";
 		colorTableChild.style.padding = "10px";
 		colorTableChild.innerHTML = colorNames[i];
-		colorTableChild.style.color = colorNames[i];
+		colorTableChild.style.backgroundColor = colorNames[i];
 	}
-	
+}
+
+function removeColorTable(){
+	var parent = document.getElementById("colorTable");
+	var child = parent.childNodes;
+
+	// for(var i=0; i<child.length; i++){
+	// 	parent.removeChild(child[child.length-i]);
+	// }
+
+	while(child[0]){
+		parent.removeChild(child[0]);
+	}
+
+	// while(parent.hasChildNodes()){
+	// 	parent.removeChild(parent.firstChild);
+	// }
+}
+
+var id;
+
+function changeColor(){
+	id = setInterval(flashText, 1000);
+}
+
+function flashText(){
+	var target = document.getElementById("target");
+
+	if(target.style.backgroundColor == "yellow"){
+		target.style.backgroundColor = "green";
+		target.style.color = "red";
+	}
+	else{
+		target.style.backgroundColor = "yellow";
+		target.style.color = "blue";
+	}
 }
 
 
+function stopTextColor(){
+	clearInterval(id);
+}
+
+function myMove(){
+	var box = document.getElementById("animate");
+	var i=0;
+	var move = setInterval(moveBox, 5);
+	function moveBox(){
+		if(i==350){
+			clearInterval(box);
+		}
+		else{
+			i++;
+			box.style.top = i+"px";
+			box.style.left = i+"px";
+		}
+	}
+}
 
 
 
