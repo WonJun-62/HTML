@@ -6,7 +6,7 @@
 	<link type="text/css" rel="stylesheet" href="playjs.css">
 	<script src="playjs.js"></script>
 </head>
-<body onload="changeColor();">
+<body>
 	<header>
 		<div id="title">
 			Play with JS!
@@ -34,7 +34,7 @@
 				<input id="y" /><br>
 				합계:
 				<input id="sum" /><br>
-				<input type="button" value="계산" onclick="calc();" />
+				<input id="calcButton" type="button" value="계산"/>
 			</form>
 		</div>
 
@@ -66,8 +66,8 @@
 			<form>
 				숫자:
 				<input type="text" id="user" size="5">
-				<input type="button" value="확인" onclick="guess();">
-				<input type="button" value="다시하기" onclick="replay();">
+				<input id="guessNumButton" type="button" value="확인">
+				<input id="replayButton" type="button" value="다시하기">
 				<br><br>
 				추측횟수:
 				<input type="text" id="guesses" size="5">
@@ -79,14 +79,14 @@
 
 		<div class="lab">
 			<img id="image" src="dog1.jpeg"/>
-			<input type="button" onclick="changeImage();" value="눌러보세요"/>
+			<input id="changeButton" type="button" value="눌러보세요"/>
 	
 		</div>
 
 		<div class="lab">
 			<h3>색상 테이블 출력하기</h3>
-			<input type="button" id="ctCreate" value="출력하기" onclick="createColorTable();"/>
-			<input type="button" id="ctRemove" value="없애기" onclick="removeColorTable();"/>
+			<input type="button" id="ctCreate" value="출력하기"/>
+			<input type="button" id="ctRemove" value="없애기"/>
 			<div id="colorTable"></div>
 		</div>
 
@@ -94,13 +94,13 @@
 			<div id="target">
 				This is a Text.
 			</div>
-			<button onclick="stopTextColor();">중지</button>
+			<button id="stopButton">중지</button>
 		</div>
 
 		<div class="lab">
 			<h3>상자 이동하기</h3>
 			<p>
-				<button onclick="myMove()">Click Me</button>
+				<button id="moveButton">Click Me</button>
 			</p>
 			<div id="container">
 				<div id="animate"></div>
@@ -116,10 +116,10 @@
 		<div id="clue">Press New Game to play!</div>
 		<div>
 			<input id="hguess" type="text" size="1" maxlength="1"/>
-			<button id="guessbutton" onclick="guessLetter();" disabled="disabled">Guess</button>
+			<button id="guessbutton" disabled="disabled">Guess</button>
 		</div>
 		<div id="newgamearea">
-			<button onclick="newGame();">New Game</button>
+			<button id="newGameButton">New Game</button>
 		</div>
 		<div id="guessstr"></div>
 	</div>

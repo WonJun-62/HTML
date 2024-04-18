@@ -14,6 +14,7 @@
 			var form = document.myform;
 			var id = form["id"].value;
 			var name = form["name"].value;
+			var password = form["password"].value;
 			var gender = form["gender"].value;
 			var cell = form["number1"].value + form["number2"].value + form["number3"].value;
 			var address = form["address"].value;
@@ -25,6 +26,36 @@
 			var str = id + "\n" + name + "\n" + gender + "\n";
 			str += cell + "\n" + address + "\n" + hobby;
 			alert(str);
+
+			if(id.length==0){
+				alert("아이디가 공백입니다.");
+			}else if(id.length<6){
+				alert("아이디는 6자리 이상이어야 합니다.");
+			}
+
+			if(name.length==0){
+				alert("이름이 공백입니다.");
+			}
+
+			if(password.length==0){
+				alert("비밀번호가 공백입니다.");
+			}else if(password.length<6){
+				alert("비밀번호는 6자리 이상이어야 합니다.");
+			}
+
+			function check_passwd(str){
+				var exp1 = /[0-9]+/; // /[@#$]+[^`~!]/;
+				var exp2 = /[a-zA-Z]+/;
+				var exp3 = /[$@#]+/;
+				var exp4 = /[`~!%^&*|\\\'\";:\/?]+/;
+				if(!exp1.test(str)){
+					alert("숫자를 포함하여야 합니다.");
+					return false;
+				}
+				else if(!exp2.test(str)){
+					alert("영어를 포함하여야 합니다.");
+					return false;
+				}
 		}
 	</script>
 	
@@ -39,7 +70,7 @@
 				<td>아이디
 				</td>
 				<td>
-					<input type="text" name="id" size="15" maxlength="12">
+					<input type="text" name="id" size="15" maxlength="12" >
 				</td>
 			</tr>
 

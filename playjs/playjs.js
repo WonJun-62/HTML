@@ -1,4 +1,29 @@
-window.onload = setCTime; //윈도우에 페이지 로드가 완료되면 동작 수행
+window.onload = pageLoad;
+
+function pageLoad(){
+	setCTime();
+	changeColor();
+	var b1 = document.getElementById("calcButton");
+	b1.onclick = calc;
+	var b2 = document.getElementById("guessNumButton");
+	b2.onclick = guess;
+	var b3 = document.getElementById("replayButton");
+	b3.onclick = replay;
+	var b4 = document.getElementById("changeButton");
+	b4.onclick = changeImage;
+	var b5 = document.getElementById("ctCreate");
+	b5.onclick = createColorTable;
+	var b6 = document.getElementById("ctRemove");
+	b6.onclick = removeColorTable;
+	var b7 = document.getElementById("stopButton");
+	b7.onclick = stopTextColor;
+	var b8 = document.getElementById("moveButton");
+	b8.onclick = myMove;
+	var b9 = document.getElementById("guessbutton");
+	b9.onclick = guessLetter;
+	var b10 = document.getElementById("newGameButton");
+	b10.onclick = newGame;
+}
 
 function calc(){
 	var a = document.getElementById("x").value;
