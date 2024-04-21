@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>중간고사 연습</title>
+        <style>
+            *{
+                text-align: center;
+                font-weight: bold;
+            }
+
+            body{
+                /* position: relative; */
+                overflow: hidden;
+            }
+            #main_header{
+                display:block;
+                width: 100%;
+                height: 100px;
+                line-height: 100px;
+                background-color: aqua;
+            }
+            
+            #center{
+                display: block;
+                /* position: relati ve; */
+                /* flex-direction: row;
+                justify-content: space-between; */
+                height: 300px;
+                align-content: center;
+            }
+
+            #main_nav{
+                display: block;
+                float: left;
+                width: 30%;
+                height: 100%;
+                line-height: 300px;
+                background-color: blue;
+            }
+
+            section{
+                display: block;
+                float: left;
+                width: 40%;
+                height: 100%;
+                background-color: red;
+                align-content: center;
+                margin: 0 auto;
+            }
+
+            #inside_header{
+                margin: 5px auto;
+                display: block;
+                width: 90%;
+                height: 30%;
+                line-height: 90px;
+                background-color: aliceblue;
+            }
+
+            article{
+                margin: 5px auto;
+                display: block;
+                width: 90%;
+                height: 30%;
+                line-height: 90px;
+                background-color: blueviolet;
+            }
+
+            #inside_footer{
+                margin: 5px auto 10px;
+                display: block;
+                width: 90%;
+                height: 30%;
+                line-height: 90px;
+                background-color: green;
+            }
+
+            aside{
+                display: block;
+                float: left;
+                width: 30%;
+                height: 100%;
+                line-height: 300px;
+                background-color: yellow;
+            }
+
+            #main_footer{
+                display: block;
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                background-color: gray;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header id="main_header">
+            header
+        </header>
+        <div id="center">
+            <nav id="main_nav">
+                nav
+            </nav>
+            <section>
+                section
+                <header id="inside_header">
+                    header
+                </header>
+                <article>
+                    article
+                </article>
+                <footer id="inside_footer">
+                    footer
+                </footer>
+            </section>
+            <aside>
+                aside
+            </aside>
+        </div>
+        <hr>
+        <footer id="main_footer">
+            footer
+        </footer>
+    </body>
+</html>
