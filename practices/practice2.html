@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="practice2.js"></script>
     <title>layout practice</title>
     <style>
         *{
@@ -16,7 +17,7 @@
     </style>
 </head>
 <body>
-    <div>
+    <div id="main_header">
         <header>
             <div id="title">
                 Weekly Hot Issues
@@ -30,42 +31,46 @@
                     <li>뉴스</li>
                 </ul>
             </nav>
-            <div id="content">
-                <div id="fbox"></div>
-                <aside>
-                    <input id="song" type="radio" name="tab" checked="checked">
-                    <input id="movie" type="radio" name="tab">
-                    <section class="tab-title">
-                        <label for="song">Song Top 5</label>
-                        <label for="movie">Movie Top 5</label>
-                    </section>
-                    <div class="tab-item">
-                        <ul>
-                            <li>
-                                <a>
-                                    <div>
-                                        <img>
-                                    </div>
-                                    <div>1S</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-item">
-                        <ul>
-                            <li>
-                                <a>
-                                    <div>
-                                        <img>
-                                    </div>
-                                    <div>122</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
         </header>
+        <div id="content">
+            <div id="fbox"></div>
+            <aside>
+                <input id="song" type="radio" name="tab" checked="checked">
+                <input id="movie" type="radio" name="tab">
+                <section class="tab-title">
+                    <label for="song">Song Top 5</label>
+                    <label for="movie">Movie Top 5</label>
+                </section>
+                <div class="tab-item">
+                    <ul>
+                        <li>
+                            <a>
+                                <div>
+                                    <img>
+                                </div>
+                                <div>1S</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-item">
+                    <ul>
+                        <li>
+                            <a>
+                                <div>
+                                    <img>
+                                </div>
+                                <div>122</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div id="table">
+            <button id="create">create table</button>
+            <div id="tablehere"></div>
+        </div>
     </div>
 </body>
 </html>
