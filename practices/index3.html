@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: beige;
+        }
+
+        h1 {
+            text-align: center; 
+        }
+
+        ul {
+            font-size: 20px;
+        }
+
+        .count {
+            cursor: pointer;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+  </head>
+  <body> 
+    <h1>my favorite fruit list</h1>
+    <ul>
+      <li class="red">apple</li>
+      <li class="red">orange</li>
+      <li>banana</li>
+      <li>grape</li>
+      <li>strawberry</li>
+    </ul>
+    <button class="count">과일 개수를 알려줘!</button>
+    
+    <script>
+
+        //add mango
+        const mango = document.createElement("li");
+        const mangoText = document.createTextNode("mango");
+
+        mango.appendChild(mangoText);
+
+        const fruitList = document.querySelector("ul");
+        fruitList.appendChild(mangoText);
+
+        //delete Red
+        const redfruit = document.querySelectorAll(".red");
+        redfruit.forEach((fruit) => { //array i번째 배열
+            fruit.remove();
+        })
+
+        //make Blue
+        const thirdFruit = document.querySelector("li:nth-child(3)");
+        thirdFruit.classList.add('blue');
+
+        //alert how many fruits
+        const AllList = document.querySelectorAll("li");
+        const button = document.querySelector("button.count");
+        button.addEventListener('click', showCount);
+
+        function showCount(){
+            alert(`과일 개수는 ${AllList.length}`);
+        }
+
+    </script>
+  </body>
+</html>
