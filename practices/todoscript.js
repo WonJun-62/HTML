@@ -15,6 +15,7 @@ function addTodo(){
         });
 
         const deleteBtn = document.createElement("Button");
+        deleteBtn.className = 'delete-btn';
         deleteBtn.textContent = "삭제";
         deleteBtn.onclick = function(){
             list.removeChild(item);
