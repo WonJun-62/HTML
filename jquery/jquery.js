@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     var i = 0;
     $("div.out").mouseover(function () {
         $("div.out p:first").text("mouse over");
