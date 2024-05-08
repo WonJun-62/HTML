@@ -35,6 +35,61 @@
             </div>
             <button id="b1">전체화면보기</button>
         </div>
+
+		<div class="lab">
+			<button id="theone">Does Nothing...</button>
+			<button id="bind">Add Click</button>
+			<button id="unbind">Remove Click</button>
+			<div id="off_test" style="display: none;">Click</div>
+		</div>
+
+		<div class="lab">
+			<div id="trigger_test">
+				<button>Button #1</button>
+				<button>Button #2</button>
+				<div><span>0</span>button #1 clicks.</div>
+				<div><span>0</span>button #2 clicks.</div>
+			</div>
+		</div>
+
+		<div class="lab">
+			<h3>이미지 변경하기</h3>
+			<div id="imageArea">
+				<img id="image" src="dog1.jpeg" width="240">
+			</div>
+		</div>
+
+		<div class="lab">
+			<h3>사진 앨범</h3>
+			<div>
+				<img id="imgAlbum" width="250" height="250">
+			</div>
+		</div>
+
+		<div class="lab" id="schedule">
+			<div id="schedule_header">
+				<h2>스케줄 노트</h2>
+				<div id="add_img"><img src="plus_img.jpg" width="30"></div>
+			</div>
+			<div id="note_form">
+				<table>
+					<tr>
+						<td>제목</td><td><input id="note_title" type="text"></td>
+					</tr>
+					<tr>
+						<td>날짜</td><td><input id="note_date" type="date"></td>
+					</tr>
+					<tr>
+						<td>내용</td><td><textarea id="note_content" rows="20" cols="50"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><button id="add_note">확인</button></td>
+					</tr>
+				</table>
+			</div>
+			<div id="note"></div>
+		</div>
+
     </div>
 
 	<footer>

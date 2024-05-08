@@ -78,10 +78,32 @@ div.out{
     height: 150px;
     background-color: yellow;
 }
-div.out.p{
+div.out p{
     text-align: center;
     line-height: 50px;
     height: 50px;
     border: 2px solid red;
     border-radius: 10px;
+}
+
+#off_test{
+	color: red;
+	background-color: yellow;
+}
+
+#schedule_header{
+	overflow: hidden;
+	height: 50px;
+}
+
+#add_img{
+	float: right;
+}
+
+#schedule_header h2{
+	float: left;
+}
+
+#note_form{
+	display: none;
 }
