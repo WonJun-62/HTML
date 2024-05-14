@@ -85,6 +85,66 @@ $(document).ready(function(){
         $(this).css({"font-size": "1em", background: "none"});
     });
 
+    $("#add_img").click(show_note_form);
+
+    function show_note_form(){
+        $("#note_form").addClass("popup");
+        change_position($(".popup"));    //top,left 속성 변경
+        $("#note_form").slideDown("slow");  //show();
+    }
+
+    $("#add_note").click(function(){
+        var title = $("#note_title").val();
+        var date = $("#note_date").val();
+        var content = $("#note_content").val();
+
+        var str = "<p>" + title + "<br>" + date + "<br>" + content + "</p><br>";
+        
+        $("#note_form").slideUp("fast");    //hide();
+        // $("#note_form").css("display", "none");
+        $("#note").append(str);
+    });
+
+    
+    
+    
+
+    function change_position(obj){
+        var l = ($(window).width() - obj.width())/2;
+        var t = ($(window).height() - obj.height())/2;
+        obj.css({top:t, left:l});
+    }
+
+    $(window).resize(function(){
+        change_position($(".popup"));
+    });
+
+    $("#moving_button").click(function(){
+        $("#moving_box").animate({
+            right: "0px",
+            height: "+=50px",
+            width: "+=50px"
+        });
+        $("#animation_test").animate({
+            height: "+=50px"
+        })
+    });
+   
+    
+    $(".accordion").each(function(){
+        var dl = $(this);
+        var alldd = dl.find("dd");
+        var alldt = dl.find("dt");
+        alldd.hide();
+        alldt.css("cursor", "pointer");
+
+        alldt.click(function(){
+            alldd.hide();
+            $(this).next().show();
+            alldt.css("cursor", "pointer");
+            $(this).css("cursor", "default");
+        });
+
+    });
+
 });
-
-
