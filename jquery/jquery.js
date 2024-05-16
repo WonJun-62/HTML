@@ -186,7 +186,7 @@ $(document).ready(function(){
             clearInterval(timer);
         }
 
-        container.hover(startTimer, stopTimer);
+        container.hover(stopTimer, startTimer);
         startTimer();
         
     });
