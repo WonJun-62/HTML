@@ -133,18 +133,62 @@ $(document).ready(function(){
     
     $(".accordion").each(function(){
         var dl = $(this);
-        var alldd = dl.find("dd");
-        var alldt = dl.find("dt");
-        alldd.hide();
-        alldt.css("cursor", "pointer");
+        var allDd = dl.find("dd");
+        var allDt = dl.find("dt");
 
-        alldt.click(function(){
-            alldd.hide();
-            $(this).next().show();
-            alldt.css("cursor", "pointer");
-            $(this).css("cursor", "default");
+        // alldd.hide();
+        // alldt.css("cursor", "pointer");
+
+        // alldt.click(function(){
+        //     alldd.hide();
+        //     var dt = $(this);
+        //     var dd = dt.next();
+        //     dd.show();
+        //     alldt.css("cursor", "pointer");
+        //     dt.css("cursor", "default");
+        // });
+
+        function closeAll(){
+            allDd.addClass("closed");
+            allDt.addClass("closed");
+        }
+
+        function open(dt,dd){
+            dt.removeClass("closed");
+            dd.removeClass("closed");
+        }
+
+        closeAll();
+        allDt.click(function(){
+            var dt = $(this);
+            var dd = dt.next();
+            closeAll();
+            open(dt,dd);
         });
 
+    });
+
+    var interval = 4000;
+    $('.slideshow').each(function(){
+        var timer;
+        var container = $(this);
+        function switchimg(){
+            var imgs = container.find('img');
+            var first = imgs.eq(0);
+            var second = imgs.eq(1);
+            first.appendTo(container).fadeOut(2000);
+            second.fadeIn();
+        }
+        function startTimer(){
+            timer = setInterval(switchimg, interval);
+        }
+        function stopTimer(){
+            clearInterval(timer);
+        }
+
+        container.hover(startTimer, stopTimer);
+        startTimer();
+        
     });
 
 });
