@@ -191,4 +191,16 @@ $(document).ready(function(){
         
     });
 
+    $("#getText").click(function(){
+        $("#textbox").text("글자 입력 테스트");
+        var req = $.ajax("data.txt");
+        req.done(function(data, status){
+            var students = JSON.parse(data);
+            for(var i=0; i<students.length; i++){
+                var str = "<br>"+students[i].name;
+                $("#textbox").append(str);
+            }
+        });
+    });
+
 });
