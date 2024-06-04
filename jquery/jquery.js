@@ -192,14 +192,36 @@ $(document).ready(function(){
     });
 
     $("#getText").click(function(){
-        $("#textbox").text("글자 입력 테스트");
-        var req = $.ajax("data.txt");
+        // $("#textbox").text("글자 입력 테스트");
+        // var req = $.ajax("data.txt");
+        var req = $.ajax({
+            url: "data.txt",
+            dataType: "json"
+        });
         req.done(function(data, status){
-            var students = JSON.parse(data);
-            for(var i=0; i<students.length; i++){
-                var str = "<br>"+students[i].name;
-                $("#textbox").append(str);
+            // var students = JSON.parse(data);
+            // for(var i=0; i<data.length; i++){
+            //     var str = "<br>"+data[i].name;
+            //     $("#textbox").append(str);
+            // }
+            var tb = $("<table/>");
+            var row = $("<tr/>").append(
+                        $("<th/>").text("이름"),
+                        $("<th/>").text("아이디"),
+                        $("<th/>").text("학과"),
+                        $("<th/>").text("수강과목")
+                        );
+            tb.append(row);
+            for(var j=0; j<data.length; j++){
+                var row2 = $("<tr/>").append(
+                            $("<td/>").text(data[j].name),
+                            $("<td/>").text(data[j].id),
+                            $("<td/>").text(data[j].department),
+                            $("<td/>").text(data[j].class)
+                            );
+                tb.append(row2);
             }
+            $("#textbox").html(tb); //append면 TABLE이 계속 생김
         });
     });
 
