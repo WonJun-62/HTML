@@ -8,7 +8,7 @@ const MyPage = () => {
                 <Name>제 이름은 이원준입니다.</Name>
                 <Dept>저는 건국대학교 컴퓨터공학과 학생입니다.</Dept>
                 <Intro>비빔밥 동아리에서 프론트엔트 세션을 수강하고 있습니다.</Intro>
-                
+                <Test>1234</Test>
             </Card>
         </>
     )
@@ -45,7 +45,7 @@ const Intro = styled.div`
     font-size: 40px;
 `
 
-const Thanks = styled.div`
+const Test = styled.div`
     color: white;
     text-align: center;
     font-size: 60px;
