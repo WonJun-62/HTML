@@ -54,5 +54,21 @@ router.route('/routetest').get(function(req, res){
     res.redirect('http://www.google.com')
 });
 
+router.route('/rss').get(function(req, res){
+    console.log("rss data requested");
+    var feed = "http://fs.jtbc.co.kr/RSS/entertainment.xml";
+    http.get(feed, function(httpres){
+        var rss_res = "";
+        httpres.on('data', function(chunk){
+            rss_res += chunk;
+        });
+        httpres.on('end', function(){
+            res.send(rss_res);
+            console.log("rss response completed");
+            res.end();
+        });
+    });
+});
+
 app.use('/', router);
 

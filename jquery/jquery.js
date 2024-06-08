@@ -225,4 +225,34 @@ $(document).ready(function(){
         });
     });
 
+    var req = $.ajax({
+        url: "/rss",
+        dataType: "xml"         // xml 객체로 parse
+    });
+    req.done(function(data){
+        // console.log(data);
+        var items = $(data).find("item");
+        if(items.length > 5){
+            items = items.slice(0, 5);
+            var uTag = $("<ul/>");
+            items.each(function(){
+                var item = $(this);
+                var lk = item.find("link").text();
+                var title = item.find("title").text();
+                var aTag = $("<a/>")
+                .attr({
+                    "href": lk,
+                    "target": "_blank"
+                })
+                .text(title);
+                var liTag = $("<li/>").append(aTag);
+                uTag.append(liTag);
+            });
+            $("#news").html(uTag);
+        }
+    });
+    req.fail(function(jqXHR, textStatus){
+        alert("failed: " + textStatus);
+    });
+
 });
