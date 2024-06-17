@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     var i = 0;
-    $("div.out").mouseover(function () {
+    $("div.out").mouseover(function () {            // mouseover/out
         $("div.out p:first").text("mouse over");
         $("div.out p:last").text(++i);
     });
@@ -19,7 +19,7 @@ $(document).ready(function(){
     //     $("p:first", this).text("mouse out");
     // });
 
-    function maxopen(event){
+    function maxopen(event){                        // 창 최대로 키워서 띄우기
         var maxwindow = window.open(event.data.url, "", event.data.winattributes);
         maxwindow.moveTo(0,0);
         maxwindow.resizeTo(screen.availWidth, screen.availHeight)
@@ -45,21 +45,21 @@ $(document).ready(function(){
         .text("Does Nothing...");
     });
 
-    $("#trigger_test button:first").click(function(){
+    $("#trigger_test button:first").click(function(){   // 얘만 올라감
         update($("span:first"));
     });
 
-    $("#trigger_test button:last").click(function(){
+    $("#trigger_test button:last").click(function(){    // 둘다 올라감
         $("#trigger_test button:first").trigger("click");
         update($("span:last"));
     });
 
-    function update(j){
+    function update(j){                                 // 숫자 올라가는 함수
         var n = parseInt(j.text(), 10);
         j.text(n+1);
     }
 
-    $("#imageArea").click(function(){
+    $("#imageArea").click(function(){                   // 클릭해서 사진 바꾸기
         if($("#image").attr("src") == "dog1.jpeg"){
             $("#image").attr("src", "dog2.jpeg");
         }
@@ -77,7 +77,7 @@ $(document).ready(function(){
         $("#imgAlbum").attr("src", imgArray[albumIndex]);
     });
 
-    $(".main-menu").mouseover(function(){
+    $(".main-menu").mouseover(function(){               // css속성 변경
         $(this).css({"font-size": 20, backgroundColor: "green"});
     });
 
@@ -119,7 +119,7 @@ $(document).ready(function(){
         change_position($(".popup"));
     });
 
-    $("#moving_button").click(function(){
+    $("#moving_button").click(function(){           // box 움직이기
         $("#moving_box").animate({
             right: "0px",
             height: "+=50px",
@@ -131,7 +131,7 @@ $(document).ready(function(){
     });
    
     
-    $(".accordion").each(function(){
+    $(".accordion").each(function(){                // 메뉴 열기
         var dl = $(this);
         var allDd = dl.find("dd");
         var allDt = dl.find("dt");
